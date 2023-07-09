@@ -15,4 +15,21 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {{ wtf.quick_form(form) }}
 
+{% if session['suggestion_lst'] != False %}
+
+<table class="table table-hover table-striped table-bordered">
+
+  {% for suggest in session['suggestion_lst'] %}
+
+  <tr>
+    <td> <a href ='#'> {{ suggest | title }} </a></td>
+  </tr>
+
+  {% endfor %}
+
+</table>
+
+{% endif %}
+
+
 {% endblock %}

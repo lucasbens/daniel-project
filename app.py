@@ -15,7 +15,8 @@ from flask_bootstrap import Bootstrap
 from functions import remove_non_alphabetical, suggestion
 
 
-table_dico = {"lucas bensaid": "Mojito", "ilana cohen": "Negroni"}
+table_dico = {"lucas bensaid": "Mojito", "ilana cohen": "Negroni", "sacha farsy": "Gin Tonic", "jean-pierre benichou": "Margarita",
+"noémie attal": "Old Fashioned" }
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "fbcfjnj3r948334i23ejd2mewx"
@@ -30,7 +31,7 @@ class NameForm(FlaskForm):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    name = None
+    # name = None
     form = NameForm()
 
     if form.validate_on_submit():
@@ -43,6 +44,7 @@ def index():
         )
         session["attempt"] = session.get("attempt", 0) + 1
         session["form_validated"] = False
+        session["suggestion_lst"] = False
 
         if session["full_name"] in table_dico:
             session["table"] = table_dico[session["full_name"]]
@@ -54,9 +56,8 @@ def index():
                 f"<strong>Prénom:</strong> {session['firstname']}, <strong>Nom:</strong> {session['name']},   <strong>incorrect</strong>"
             )
 
-            flash(f"{suggestion(session['full_name'], table_dico.keys())}")
+            session["suggestion_lst"] = suggestion(session['full_name'], table_dico.keys())
 
-            
             return redirect(url_for("index"))
 
     return render_template("index.html", form=form)
