@@ -22,9 +22,11 @@ def remove_non_alphabetical(text):
 
 
 
-def suggestion(full_name, key_table_dico, limit=5):
+def suggestion(full_name, table_dico, limit=5):
 
-    return [tup[0] for tup in process.extract(full_name, key_table_dico, limit=5)]
+    return [(tup[0], table_dico[tup[0]]) for tup in process.extract(full_name, table_dico.keys(), limit=5)]
+
+
 
     
 

@@ -22,7 +22,9 @@
   {% for suggest in session['suggestion_lst'] %}
 
   <tr>
-    <td> <a href ='#'> {{ suggest | title }} </a></td>
+    <td> <a href="{{url_for('redirect_suggestion', full_name=suggest[0] ,table=suggest[1])}}"> {{ suggest[0] | title
+        }} </a></td>
+
   </tr>
 
   {% endfor %}

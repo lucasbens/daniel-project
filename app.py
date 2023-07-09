@@ -56,7 +56,7 @@ def index():
                 f"<strong>Prénom:</strong> {session['firstname']}, <strong>Nom:</strong> {session['name']},   <strong>incorrect</strong>"
             )
 
-            session["suggestion_lst"] = suggestion(session['full_name'], table_dico.keys())
+            session["suggestion_lst"] = suggestion(session['full_name'], table_dico)
 
             return redirect(url_for("index"))
 
@@ -71,3 +71,13 @@ def my_table(table):
     else:
         flash("Remplissez le formulaire pour avoir votre table")
         return redirect(url_for("index"))
+
+
+@app.route("/suggestion/<full_name>/<table>", methods=["GET", "POST"])
+def redirect_suggestion(full_name, table):
+     flash('in')
+     session["form_validated"] =True
+     session["full_name"] = full_name
+     session["table"] = table
+
+     return redirect(url_for("my_table", table=session["table"]))
