@@ -12,12 +12,35 @@
 
 {% endfor %}
 
-{% import "bootstrap/wtf.html" as wtf %}
-{{ wtf.quick_form(form) }}
+<!-- {% import "bootstrap/wtf.html" as wtf %}
+{{ wtf.quick_form(form) }} -->
+
+<h3> Obtiens ton placement à table ! &#127869;</h3>
+
+</br>
+
+<form method="POST">
+  {{ form.hidden_tag() }}
+
+  {{ form.firstname.label(class="form-label")}}
+  {{ form.firstname(class="form-control")}}
+
+  {{ form.name.label(class="form-label")}}
+  {{ form.name(class="form-control")}}
+
+  <br/>
+
+  {{ form.submit(class="btn btn-primary")}}
+
+</form>
 
 {% if session['suggestion_lst'] != False %}
 
+<br/>
 <table class="table table-hover table-striped table-bordered">
+  <tr>
+    <th scope="col" class="table-info"> Suggestion &#x1F9D0; </th>
+  </tr>
 
   {% for suggest in session['suggestion_lst'] %}
 

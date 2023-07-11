@@ -53,7 +53,7 @@ def index():
 
         else:
             flash(
-                f"<strong>Prénom:</strong> {session['firstname']}, <strong>Nom:</strong> {session['name']},   <strong>incorrect</strong>"
+                f"Le <strong>Prénom:</strong> <em>{session['firstname']}</em> et le <strong>Nom:</strong> <em>{session['name']}</em> n'ont pas été trouvés."
             )
 
             session["suggestion_lst"] = suggestion(session['full_name'], table_dico)
@@ -79,5 +79,6 @@ def redirect_suggestion(full_name, table):
      session["form_validated"] =True
      session["full_name"] = full_name
      session["table"] = table
+     session['suggestion_lst'] = False
 
      return redirect(url_for("my_table", table=session["table"]))
