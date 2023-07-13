@@ -18,28 +18,31 @@
 <h3> Obtiens ton placement à table ! &#127869;</h3>
 
 </br>
+<div class="shadow p-3 mb-5 bg-white rounded">
 
-<form method="POST">
-  {{ form.hidden_tag() }}
+  <form method="POST">
+    {{ form.hidden_tag() }}
 
-  {{ form.firstname.label(class="form-label")}}
-  {{ form.firstname(class="form-control")}}
+    {{ form.firstname.label(class="form-label")}}
+    {{ form.firstname(class="form-control")}}
 
-  {{ form.name.label(class="form-label")}}
-  {{ form.name(class="form-control")}}
+    {{ form.name.label(class="form-label")}}
+    {{ form.name(class="form-control")}}
 
-  <br/>
+    <br />
 
-  {{ form.submit(class="btn btn-primary")}}
+    {{ form.submit(class="btn btn-primary")}}
 
-</form>
+  </form>
+
+</div>
 
 {% if 'suggestion_lst' in session %}
 
 {% if session['suggestion_lst'] != False %}
 
 
-<br/>
+<br />
 <table class="table table-hover table-striped table-bordered">
   <tr>
     <th scope="col" class="table-info"> Suggestion &#x1F9D0; </th>
