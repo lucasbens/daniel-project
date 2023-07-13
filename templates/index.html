@@ -34,7 +34,10 @@
 
 </form>
 
+{% if 'suggestion_lst' in session %}
+
 {% if session['suggestion_lst'] != False %}
+
 
 <br/>
 <table class="table table-hover table-striped table-bordered">
@@ -53,7 +56,7 @@
   {% endfor %}
 
 </table>
-
+{% endif %}
 {% endif %}
 
 

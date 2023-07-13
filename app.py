@@ -65,8 +65,13 @@ def index():
 
 @app.route("/<table>", methods=["GET", "POST"])
 def my_table(table):
-    if session and session["form_validated"] and session["table"] == table:
-        return render_template("table.html", table=session["table"])
+    if session and "form_validated" in session and "table" in  session:
+        if session["table"] == table:
+            return render_template("table.html", table=session["table"])
+        
+        else:
+            flash("Remplissez le formulaire pour avoir votre table")
+            return redirect(url_for("index"))
 
     else:
         flash("Remplissez le formulaire pour avoir votre table")
@@ -75,7 +80,7 @@ def my_table(table):
 
 @app.route("/suggestion/<full_name>/<table>", methods=["GET", "POST"])
 def redirect_suggestion(full_name, table):
-     flash('in')
+    #  flash('in')
      session["form_validated"] =True
      session["full_name"] = full_name
      session["table"] = table
