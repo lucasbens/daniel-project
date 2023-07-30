@@ -10,6 +10,9 @@ def remove_non_alphabetical(text):
     # Remove accent
     text = unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode('utf-8')
 
+    
+    text = text.strip()
+
     # Remove non alphabetical and keep hyphens and spaces
     text = re.sub(r'[^a-zA-Z-\s]', '', text)
 

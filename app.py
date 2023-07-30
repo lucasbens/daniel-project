@@ -16,7 +16,7 @@ from functions import remove_non_alphabetical, suggestion
 
 
 table_dico = {"lucas bensaid": "Mojito", "ilana cohen": "Negroni", "sacha farsy": "Gin Tonic", "jean-pierre benichou": "Margarita",
-"noémie attal": "Old Fashioned" }
+"noémie attal": "Old Fashioned", "benjamin akoun": "Old Fashioned"}
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "fbcfjnj3r948334i23ejd2mewx"

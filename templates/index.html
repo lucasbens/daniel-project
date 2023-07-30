@@ -40,12 +40,9 @@
 {% if 'suggestion_lst' in session %}
 
 {% if session['suggestion_lst'] != False %}
-
-
-<br />
 <table class="table table-hover table-striped table-bordered">
   <tr>
-    <th scope="col" class="table-info"> Suggestion &#x1F9D0; </th>
+    <th scope="col" class="table-info"> Suggestions &#x1F9D0; </th>
   </tr>
 
   {% for suggest in session['suggestion_lst'] %}
@@ -64,3 +61,4 @@
 
 
 {% endblock %}
+
