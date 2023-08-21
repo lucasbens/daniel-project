@@ -13,10 +13,8 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 from functions import remove_non_alphabetical, suggestion
+from db import table_dico
 
-
-table_dico = {"lucas bensaid": "Mojito", "ilana cohen": "Negroni", "sacha farsy": "Gin Tonic", "jean-pierre benichou": "Margarita",
-"noémie attal": "Old Fashioned", "benjamin akoun": "Old Fashioned"}
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "fbcfjnj3r948334i23ejd2mewx"
