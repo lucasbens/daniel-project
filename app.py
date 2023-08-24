@@ -13,7 +13,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 from functions import remove_non_alphabetical, suggestion
-from db import table_dico
+from dbs import table_dico, message_dico
 
 
 app = Flask(__name__)
@@ -32,6 +32,7 @@ def index():
     # name = None
     form = NameForm()
 
+    # submit form
     if form.validate_on_submit():
         session["firstname"] = form.firstname.data
         session["name"] = form.name.data
@@ -44,11 +45,17 @@ def index():
         session["form_validated"] = False
         session["suggestion_lst"] = False
 
+        # submition in dico
         if session["full_name"] in table_dico:
             session["table"] = table_dico[session["full_name"]]
+
+            if session["full_name"] in message_dico:
+                session["message"] = message_dico[session["full_name"]]
+
             session["form_validated"] = True
             return redirect(url_for("my_table", table=session["table"]))
 
+        # submition not in dico
         else:
             flash(
                 f"Le <strong>Prénom:</strong> <em>{session['firstname']}</em> et le <strong>Nom:</strong> <em>{session['name']}</em> n'ont pas été trouvés."
@@ -81,6 +88,8 @@ def redirect_suggestion(full_name, table):
     #  flash('in')
      session["form_validated"] =True
      session["full_name"] = full_name
+     if session["full_name"] in message_dico:
+                session["message"] = message_dico[session["full_name"]]
      session["table"] = table
      session['suggestion_lst'] = False
 

@@ -4,15 +4,18 @@
 
 {% block content %}
 <div>
+    <h5 class="text-center alert alert-info"> &#128171; {{session["full_name"] | title }} &#128171;</h5>
     <br>
+    <h1>&#127864; {{table}}</h1>
     <br>
-    <h2>{{table}}</h2>
+    {% if "message" in session %} 
+        <lead>&#x1F4AC {{session['message']}}</lead> 
+    {% endif %} 
+    <br>
+    
 </div>
 
-<div class="tenor-gif-embed" data-postid="25195805" data-share-method="host" data-aspect-ratio="1.10727"
-    data-width="20%"><a href="https://tenor.com/view/chevy-chase-vegas-vacation-cocktail-gif-25195805">Chevy Chase
-        GIF</a>from <a href="https://tenor.com/search/chevy-gifs">Chevy GIFs</a></div>
-<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+<!-- <img src="{{ url_for('static', filename='benak.jpeg') }}" alt="LoveImage" width="300" height="auto"> -->
 
 <!-- <img src="https://tenor.com/bRSJ7.gif" alt="this slowpoke moves" width="250" /> -->
 
