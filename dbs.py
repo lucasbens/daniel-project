@@ -365,7 +365,7 @@ message_dico= {'jean paul aboucaya': 'Si la musique est trop forte on connait un
  'bruno hochberg': "C'est donc ca les potes , on va voir si vous mettez vraiment le feu ",
  'charles naim': 'Tonton il faut prendre de la boukha',
  'paule naim': 'Tata on a kiffé Arlozorov',
- 'hubert sitbon': 'Papi pas trop vite le coeur est fragile',
+ 'hubert sitbon': 'Mon Hubert ce soir tu nous mets le feu 🔥',
  'yafa sitbon': 'Lehaim',
  'michele schwok': 'Le temps ou je dormais dans le Bunker est si loin . LOVE',
  'bernard schwok': 'Petite raclette à Verbier pour feter ca ?',
