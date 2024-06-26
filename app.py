@@ -22,8 +22,8 @@ bootstrap = Bootstrap(app)
 
 
 class NameForm(FlaskForm):
-    firstname = StringField("Prénom", validators=[DataRequired()])
-    name = StringField("Nom", validators=[DataRequired()])
+    firstname = StringField("First name", validators=[DataRequired()])
+    name = StringField("Last name", validators=[DataRequired()])
     submit = SubmitField("Click")
 
 
@@ -58,7 +58,7 @@ def index():
         # submition not in dico
         else:
             flash(
-                f"Le <strong>Prénom:</strong> <em>{session['firstname']}</em> et le <strong>Nom:</strong> <em>{session['name']}</em> n'ont pas été trouvés."
+                f"<strong>First name:</strong> <em>{session['firstname']}</em> and <strong>Last name:</strong> <em>{session['name']}</em> Not Found."
             )
 
             session["suggestion_lst"] = suggestion(session['full_name'], table_dico)
